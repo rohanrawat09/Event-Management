@@ -2,10 +2,37 @@
 <html lang="en">
   <head>
     <%- include("./partials/head") %>
-    <title>Signup-page</title>
+    <title>Signup Page</title>
+    <style>
+      body {
+        background-color: #333; /* Dark grey background */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        background-color: #e1f5fe; /* Light blue background for the card */
+        border: 2px solid #2196f3; /* Blue border */
+        border-radius: 8px;
+        padding: 20px;
+        width: 400px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      label {
+        font-weight: bold;
+      }
+      .btn-primary {
+        background-color: #4caf50; /* Green button */
+        border: none;
+      }
+      .btn-primary:hover {
+        background-color: #45a049;
+      }
+    </style>
   </head>
   <body>
-    <div class="conatiner mb-3">
+    <div class="container mb-3">
       <% if (locals.message) { %>
       <div class="alert alert-success" role="alert"><%= locals.message %></div>
       <% } %>
@@ -49,7 +76,7 @@
             name="productprice"
           />
         </div>
-        <button type="submit" class="btn btn-primary m-3">Signup</button>
+        <button type="submit" class="btn btn-primary m-3">Submit</button>
       </form>
     </div>
     <%- include("./partials/script") %>

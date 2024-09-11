@@ -4,20 +4,79 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-      .form {
-        margin: 20px;
+      body {
+        font-family: 'Arial', sans-serif;
+        background-color: #e0e0e0; /* Light grey background */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .form-container {
+        background-color: #e3f2fd; /* Very light blue background for the form */
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+        border: 2px solid #007bff; /* Blue border */
+      }
+
+      .form-container h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .form-label {
+        font-weight: bold;
+        color: #555;
+      }
+
+      .form-control {
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+      }
+
+      .btn-primary {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background-color: #0056b3;
+      }
+
+      .alert {
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+        border-radius: 5px;
       }
     </style>
     <%- include("./partials/head") %>
-    <title>Document</title>
+    <title>Admin LogIn</title>
   </head>
   <body>
     <% if (locals.message) { %>
     <div class="alert alert-danger" role="alert"><%= locals.message %></div>
-
     <% } %>
 
-    <div class="form">
+    <div class="form-container">
+      <h1>Admin LogIn</h1>
       <form action="/admin/login" method="post">
         <div class="mb-3">
           <label for="id" class="form-label">Admin ID</label>
@@ -34,6 +93,7 @@
             title="Please enter a 10-digit number"
           />
         </div>
+
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Password</label>
           <input

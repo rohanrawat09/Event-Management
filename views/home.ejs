@@ -5,34 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <%- include("./partials/head") %>
+
     <style>
-      h1 {
-        margin-top: 30px;
-        text-align: center;
+      /* Set the entire background to grey */
+      body {
+        background-color: #706f6f; /* Light grey */
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
       }
-      .role {
+
+      /* Main container for the selection area */
+      .container {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 30px;
-        margin-top: 30px;
-        flex-direction: column;
+        height: 100vh; /* Make it take the full viewport height */
+      }
+
+      /* Styling for the box around the buttons */
+      .role {
+        background-color: #007bff; /* Blue background */
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+        color: #fff;
+      }
+
+      /* Styling for the buttons */
+      .role a {
+        text-decoration: none;
+        margin: 10px;
+      }
+
+      .role button {
+        width: 150px;
+        height: 60px;
+        font-size: 18px;
+        border-radius: 8px;
+        border: none;
+        color: #fff;
+        background-color: #28a745;
+        transition: background-color 0.3s ease;
+      }
+
+      /* Hover effect for the buttons */
+      .role button:hover {
+        background-color: #218838;
+        cursor: pointer;
       }
     </style>
   </head>
   <body>
-    <h1>Please select your role</h1>
-    <div class="role">
-      <a href="/user/signup"
-        ><button type="button" class="btn btn-success">User</button>
-      </a>
-      <a href="/admin/login"
-        ><button type="button" class="btn btn-success">Admin</button>
-      </a>
-      <a href="/vendor/signup"
-        ><button type="button" class="btn btn-success">Vendor</button>
-      </a>
+    <div class="container">
+      <div class="role">
+        <h1>Please select your role</h1>
+        <div id="land">
+          <a href="/user/signup"
+            ><button type="button" class="btn">User</button></a
+          >
+          <a href="/admin/login"
+            ><button type="button" class="btn">Admin</button></a
+          >
+          <a href="/vendor/signup"
+            ><button type="button" class="btn">Vendor</button></a
+          >
+        </div>
+      </div>
     </div>
+
     <%- include("./partials/script") %>
   </body>
 </html>

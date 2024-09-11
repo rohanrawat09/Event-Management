@@ -3,41 +3,101 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Welcome Page</title>
     <%- include("./partials/head") %>
     <style>
-      h1 {
-        margin-top: 30px;
-        text-align: center;
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #2c3e50; /* Darker grey background */
+        margin: 0;
+        padding: 0;
+        color: #ecf0f1; /* Light grey text */
       }
+
+      .container {
+        max-width: 1000px;
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #cbdeec; /* Light blue background */
+        border: 2px solid #0044cc; /* Blue border */
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      h1 {
+        text-align: center;
+        color: #0044cc; /* Deep blue */
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+      }
+
       .role {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 30px;
-        margin: 30px;
-        flex-direction: roe;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .role a {
+        text-decoration: none;
+      }
+
+      .role button {
+        background-color: #28a745; /* Original green color */
+        border: 2px solid #28a745;
+        color: white;
+        font-size: 1.5rem;
+        padding: 15px 30px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+        cursor: pointer;
+      }
+
+      .role button:hover {
+        background-color: white;
+        color: #28a745;
+        border: 2px solid #28a745;
+      }
+
+      .role button:focus {
+        outline: none;
+        box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
+      }
+
+      @media (max-width: 600px) {
+        .role {
+          flex-direction: column;
+        }
+
+        .role button {
+          width: 80%;
+          font-size: 1.2rem;
+          padding: 12px 24px;
+        }
       }
     </style>
   </head>
   <body>
-    <h1>Welcome <%= locals.name %></h1>
-    <div class="role">
-      <a href="/user/album"
-        ><button type="button" class="btn btn-success">Vendor</button>
-      </a>
-      <a href="/user/cart"
-        ><button type="button" class="btn btn-success">Cart</button>
-      </a>
-      <a href="#"
-        ><button type="button" class="btn btn-success">Guest List</button>
-      </a>
-      <a href="/user/status"
-        ><button type="button" class="btn btn-success">Order Status</button>
-      </a>
-      <a href="/user/logout"
-        ><button type="button" class="btn btn-success">Log out</button>
-      </a>
+    <div class="container">
+      <h1>Welcome, <%= locals.name %></h1>
+      <div class="role">
+        <a href="/user/album">
+          <button type="button">Vendor</button>
+        </a>
+        <a href="/user/cart">
+          <button type="button">Cart</button>
+        </a>
+        <a href="#">
+          <button type="button">Guest List</button>
+        </a>
+        <a href="/user/status">
+          <button type="button">Order Status</button>
+        </a>
+        <a href="/user/logout">
+          <button type="button">Log out</button>
+        </a>
+      </div>
     </div>
     <%- include("./partials/script") %>
   </body>
