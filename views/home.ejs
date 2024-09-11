@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <%- include("./partials/head") %>
+    <style>
+      h1 {
+        margin-top: 30px;
+        text-align: center;
+      }
+      .role {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        margin-top: 30px;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Please select your role</h1>
+    <div class="role">
+      <a href="/user/signup"
+        ><button type="button" class="btn btn-success">User</button>
+      </a>
+      <a href="/admin/login"
+        ><button type="button" class="btn btn-success">Admin</button>
+      </a>
+      <a href="/vendor/signup"
+        ><button type="button" class="btn btn-success">Vendor</button>
+      </a>
+    </div>
+    <%- include("./partials/script") %>
+  </body>
+</html>

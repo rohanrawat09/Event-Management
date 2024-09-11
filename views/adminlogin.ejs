@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .form {
+        margin: 20px;
+      }
+    </style>
+    <%- include("./partials/head") %>
+    <title>Document</title>
+  </head>
+  <body>
+    <% if (locals.message) { %>
+    <div class="alert alert-danger" role="alert"><%= locals.message %></div>
+
+    <% } %>
+
+    <div class="form">
+      <form action="/admin/login" method="post">
+        <div class="mb-3">
+          <label for="id" class="form-label">Admin ID</label>
+          <input
+            name="id"
+            required
+            type="text"
+            class="form-control"
+            id="id"
+            aria-describedby="emailHelp"
+            pattern="\d{10}"
+            maxlength="10"
+            minlength="10"
+            title="Please enter a 10-digit number"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            name="password"
+            required
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">LogIn</button>
+      </form>
+    </div>
+    <%- include("./partials/script") %>
+  </body>
+</html>

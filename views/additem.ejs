@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head") %>
+    <title>Signup-page</title>
+  </head>
+  <body>
+    <div class="conatiner mb-3">
+      <% if (locals.message) { %>
+      <div class="alert alert-success" role="alert"><%= locals.message %></div>
+      <% } %>
+
+      <form
+        action="/vendor/additem"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <div class="m-3">
+          <label for="productimage" class="form-label">Product Image</label>
+          <input
+            required
+            name="productimage"
+            type="file"
+            accept="image/*"
+            class="form-control"
+            id="productimage"
+            aria-describedby="emailHelp"
+          />
+          <input type="hidden" name="profileurlBase64" id="profileurlBase64" />
+        </div>
+        <div class="m-3">
+          <label for="productname" class="form-label">Product Name</label>
+          <input
+            required
+            type="text"
+            class="form-control"
+            id="productname"
+            aria-describedby="emailHelp"
+            name="productname"
+          />
+        </div>
+        <div class="m-3">
+          <label for="productprice" class="form-label">Product Price</label>
+          <input
+            required
+            type="number"
+            class="form-control"
+            id="productprice"
+            name="productprice"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary m-3">Signup</button>
+      </form>
+    </div>
+    <%- include("./partials/script") %>
+  </body>
+</html>

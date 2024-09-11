@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <%- include("./partials/head") %>
+  </head>
+  <body>
+    <table class="table">
+      <thead>
+        <tr class="table-dark">
+          <th scope="col">Id</th>
+          <th scope="col">Product name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% locals.users.forEach(prod => { %>
+        <tr class="table-success">
+          <th scope="row"><%= prod._id %></th>
+          <td><%= prod.name %></td>
+          <td><%= prod.email %></td>
+          <td>
+            <form action="/admin/delete/user/<%= prod._id %>" method="post">
+              <button class="btn btn-danger">Delete</button>
+            </form>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <%- include("./partials/script") %>
+  </body>
+</html>

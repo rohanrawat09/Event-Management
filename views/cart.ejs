@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <%- include("./partials/head") %>
+    <style>
+      img {
+        height: 100px;
+        width: 100px;
+      }
+      h1 {
+        margin: 10px;
+        text-align: center;
+      }
+      .p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Shopping cart</h1>
+    <table class="table">
+      <thead>
+        <tr class="table-dark">
+          <th scope="col">Image</th>
+          <th scope="col">Product name</th>
+          <th scope="col">Product price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Total Price</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% locals.cart.forEach(prod => { %>
+        <tr class="table-success">
+          <th scope="row">
+            <img src="/product/<%=prod.productimage%>" alt="product image" />
+          </th>
+          <td><%= prod.productname %></td>
+          <td><%= prod.productprice %></td>
+          <td><%= prod.quantity %></td>
+          <td><%= prod.productprice*prod.quantity %></td>
+          <td>
+            <form action="/user/remove/<%= prod._id %>" method="post">
+              <button class="btn btn-danger">remove</button>
+            </form>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    <div class="p"><h1>Grand Total : <%= locals.total %></h1></div>
+
+    <div class="p">
+      <a href="/user/order" class="btn btn-success">Proceed to CheckOut</a>
+    </div>
+    <%- include("./partials/script") %>
+  </body>
+</html>

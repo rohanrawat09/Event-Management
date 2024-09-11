@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <%- include("./partials/head") %>
+  </head>
+  <body>
+    <table class="table">
+      <thead>
+        <tr class="table-dark">
+          <th scope="col">Id</th>
+          <th scope="col">Product name</th>
+          <th scope="col">Product price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% locals.pro.forEach(prod => { %>
+        <tr class="table-success">
+          <th scope="row"><%= prod._id %></th>
+          <td><%= prod.productname %></td>
+          <td><%= prod.productprice %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <%- include("./partials/script") %>
+  </body>
+</html>

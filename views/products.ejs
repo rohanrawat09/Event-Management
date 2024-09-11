@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include("./partials/head") %>
+    <style>
+      .container {
+        margin: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+      }
+      .img {
+        height: 150px;
+        width: 100%;
+      }
+      img {
+        border-radius: 10px;
+        height: 150px;
+        width: 100%;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <% if (locals.pro.length==0) { %>
+    <div class="alert alert-danger" role="alert">No result</div>
+
+    <% } %>
+
+    <div class="container">
+      <% locals.pro.forEach(element => { %>
+      <form action="/user/product/<%= element._id %>" method="post">
+        <div class="card" style="width: 18rem">
+          <div class="card-body">
+            <div class="img">
+              <img
+                src="/product/<%= element.productimage %>"
+                alt="Product image"
+              />
+            </div>
+
+            <h5 class="card-title">Name:<%= element.productname %></h5>
+            <p class="card-text">Price: $<%= element.productprice %></p>
+            <button class="btn btn-primary">Shop Item</button>
+          </div>
+        </div>
+      </form>
+
+      <% }) %>
+    </div>
+    <%- include("./partials/script") %>
+  </body>
+</html>

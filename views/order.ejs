@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .form {
+        margin: 20px;
+      }
+    </style>
+    <%- include("./partials/head") %>
+    <title>Document</title>
+  </head>
+  <body>
+    <% if (locals.message) { %>
+    <div class="alert alert-success" role="alert"><%= locals.message %></div>
+
+    <% } %>
+
+    <div class="form">
+      <form action="/user/order" method="post">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input
+            required
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input
+            name="email"
+            required
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="address" class="form-label">Address</label>
+          <input
+            name="address"
+            required
+            type="text"
+            class="form-control"
+            id="address"
+            aria-describedby="emailHelp"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="number" class="form-label">Number</label>
+          <input
+            name="number"
+            required
+            type="number"
+            maxlength="10"
+            minlength="10"
+            class="form-control"
+            id="number"
+            aria-describedby="emailHelp"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="city" class="form-label">City</label>
+          <input
+            name="city"
+            required
+            type="text"
+            class="form-control"
+            id="city"
+            aria-describedby="emailHelp"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="state" class="form-label">State</label>
+          <input
+            name="state"
+            required
+            type="text"
+            class="form-control"
+            id="state"
+            aria-describedby="emailHelp"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="pincode" class="form-label">Pin code</label>
+          <input
+            name="pincode"
+            required
+            type="number"
+            maxlength="8"
+            minlength="8"
+            class="form-control"
+            id="state"
+            aria-describedby="emailHelp"
+          />
+        </div>
+
+        <div class="mb-3">
+          <select class="form-select" name="method">
+            <option value="Cash">Cash</option>
+            <option value="Online">Online</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Order</button>
+      </form>
+    </div>
+    <%- include("./partials/script") %>
+  </body>
+</html>

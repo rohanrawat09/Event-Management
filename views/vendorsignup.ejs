@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .form {
+        margin: 20px;
+      }
+    </style>
+    <%- include("./partials/head") %>
+    <title>Document</title>
+  </head>
+  <body>
+    <% if (locals.message) { %>
+    <div class="alert alert-danger" role="alert"><%= locals.message %></div>
+
+    <% } %>
+
+    <div class="form">
+      <form action="/vendor/signup" method="post">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input
+            required
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+          <input
+            name="email"
+            required
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            name="password"
+            required
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+          />
+        </div>
+
+        <div class="mb-3">
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            name="category"
+          >
+            <option selected>Open this select menu</option>
+            <option value="Catering">Catering</option>
+            <option value="Florist">Florist</option>
+            <option value="Decoration">Decoration</option>
+            <option value="Lighting">Lighting</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">SingUp</button>
+        <a
+          href="/vendor/login"
+          class="btn btn-primary"
+          style="margin-left: 30px"
+          >LogIn</a
+        >
+      </form>
+    </div>
+    <%- include("./partials/script") %>
+  </body>
+</html>

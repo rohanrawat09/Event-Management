@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <%- include("./partials/head") %>
+  </head>
+  <body>
+    <table class="table">
+      <thead>
+        <tr class="table-dark">
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Address</th>
+          <th scope="col">Status</th>
+          <th scope="col">Update</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% locals.pro.forEach(prod => { %>
+        <tr class="table-success">
+          <th scope="row"><%= prod.name %></th>
+          <td><%= prod.email %></td>
+          <td><%= prod.address %></td>
+          <td>pending</td>
+          <td>Update</td>
+          <td class="table-danger">Delete</td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <%- include("./partials/script") %>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include("./partials/head") %>
+    <style>
+      .container {
+        margin: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <% locals.vendor.forEach(element => { %>
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title"><%= element.category%></h5>
+
+          <h5 class="card-title">Name:<%= element.name %></h5>
+          <p class="card-text">Email:<%= element.email %></p>
+          <a href="/user/vendor/<%= element._id %>" class="btn btn-primary">
+            Shop Item</a
+          >
+        </div>
+      </div>
+      <% }) %>
+    </div>
+    <%- include("./partials/script") %>
+  </body>
+</html>

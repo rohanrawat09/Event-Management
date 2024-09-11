@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <%- include("./partials/head") %>
+    <style>
+      h1 {
+        margin-top: 30px;
+        text-align: center;
+      }
+      .role {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        margin: 30px;
+        flex-direction: roe;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome <%= locals.name %></h1>
+    <div class="role">
+      <a href="/vendor/item"
+        ><button type="button" class="btn btn-success">Your Items</button>
+      </a>
+      <a href="/vendor/additem"
+        ><button type="button" class="btn btn-success">Add new item</button>
+      </a>
+      <a href="/vendor/transection"
+        ><button type="button" class="btn btn-success">Transection</button>
+      </a>
+      <a href="/vendor/logout"
+        ><button type="button" class="btn btn-success">Logout</button>
+      </a>
+    </div>
+    <%- include("./partials/script") %>
+  </body>
+</html>
