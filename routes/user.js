@@ -44,7 +44,7 @@ router.post("/signup", async (req, res) => {
 
     const token = JWT.sign(payload, secret);
 
-    return res.cookie("token", token).render("user" + name);
+    return res.cookie("token", token).render("user");
   } catch (error) {
     console.error("Error creating user:", error);
     return res.status(500).render("signup", {
